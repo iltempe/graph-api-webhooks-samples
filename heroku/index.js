@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
   res.send('It works!');
 });
 
-app.get('/facebook/', function (req, res) {
+app.get('/facebook', function (req, res) {
   if (req.query['hub.verify_token'] === '<validation_token>') {
     res.send(req.query['hub.challenge']);
   }

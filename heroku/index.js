@@ -42,3 +42,26 @@ app.post('/instagram', function(req, res) {
 });
 
 app.listen();
+
+var token = "CAAOSGgHyQMYBAM5wG282LaGpX9jf0jwZAd7AjYN6wsZCZC8i9cDYNCgwWgLK6bZCyvi8FkmLg48MWmZAY2ozJbWhdQdWtEyQya1naM8lPdlvMZA0DgXzZAvpcQajy7SxUVC3BV5JRVsxyrtxIHsOPDrOgtXx9HAZBMeaRwZAyMfQkj2nfMZBehXevyFbL2kOHj3pYZD";
+
+function sendTextMessage(sender, text) {
+  messageData = {
+    text:text
+  }
+  request({
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: {access_token:token},
+    method: 'POST',
+    json: {
+      recipient: {id:sender},
+      message: messageData,
+    }
+  }, function(error, response, body) {
+    if (error) {
+      console.log('Error sending message: ', error);
+    } else if (response.body.error) {
+      console.log('Error: ', response.body.error);
+    }
+  });
+}

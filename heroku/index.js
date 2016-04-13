@@ -25,7 +25,7 @@ app.get('/facebook/', function (req, res) {
     res.send(req.query['hub.challenge']);
   }
   res.send('Error, wrong validation token');
-})
+});
 
 app.post('/facebook', function(req, res) {
   console.log('Facebook request body:');

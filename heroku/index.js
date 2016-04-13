@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/facebook', function (req, res) {
-  if (req.query['hub.verify_token'] === 'CAAOSGgHyQMYBAJ6DR8DnZB51uW9P5zI9qJYsRX7wklzDfEmVQ0ijcZAaxYNTt4YAaZCwSaCoypKQI6MF50tuIby6D4ZAkq5eWvb9qZAPAWpCod2PhsQNSFWFl7lkRa5jiigrUQH0U5hN599lhzz5ZCaFGSIsknhin5AszArlZB4wRoDT6w8754EuNXhh2xeCgAZD') {
+  if (req.query['hub.verify_token'] === 'CAAOSGgHyQMYBAJa8QJercF3accibqbWH5Cv6wV1gDASuiHgkqUZAWblCuvua1N4Jw1I3fRZCWUySnc5rvLj3QxSL2h4zWDbLdg2aZCrleyTFV2Mpt52B3oSAvQ37An7vhdzH6oy35lZB5Xbp24VzDOnXT8UwaQWdCR7leSoWJOvbKY31xYIvzTR9dHvC3eIZD') {
     res.send(req.query['hub.challenge']);
   }
   res.send('Error, wrong validation token');

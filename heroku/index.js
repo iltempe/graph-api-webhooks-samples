@@ -20,16 +20,12 @@ app.get('/', function(req, res) {
   res.send('It works!');
 });
 
-app.get(['/facebook', '/instagram'], function(req, res) {
-  if (
-    req.param('hub.mode') == 'subscribe' &&
-    req.param('hub.verify_token') == 'token'
-  ) {
-    res.send(req.param('hub.challenge'));
-  } else {
-    res.sendStatus(400);
+app.get('/facebook/', function (req, res) {
+  if (req.query['hub.verify_token'] === '<validation_token>') {
+    res.send(req.query['hub.challenge']);
   }
-});
+  res.send('Error, wrong validation token');
+})
 
 app.post('/facebook', function(req, res) {
   console.log('Facebook request body:');
